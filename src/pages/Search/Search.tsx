@@ -1,6 +1,6 @@
 import { Grid, IconButton, InputAdornment, Stack, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useGetAnimeList } from "../../api/api";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePagination } from "../../lib/hooks/usePagination";
 import DebouncedTextInput, { type DebouncedTextInputRef } from "../../components/DebouncedTextInput";
 import SearchIcon from "@mui/icons-material/SearchOutlined";
@@ -27,6 +27,10 @@ function Search() {
   function handleClearSearch() {
     searchRef.current?.reset();
   }
+
+  useEffect(() => {
+    setPage(1);
+  }, [searchText, setPage]);
 
   return (
     <Stack sx={{ flexGrow: 1, gap: 2, width: "100%" }}>
