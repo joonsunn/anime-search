@@ -65,7 +65,7 @@ function Home() {
   };
 
   const handleChangeSearchText = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
+    const newValue = event.target.value.replace(/[^a-zA-Z0-9\s]/g, "");
     setSearchText(newValue);
     setPage(1);
   };
@@ -79,7 +79,7 @@ function Home() {
   }, [data]);
 
   return (
-    <Stack sx={{ flexGrow: 1, gap: 2 }}>
+    <Stack sx={{ flexGrow: 1, gap: 2, width: "100%" }}>
       <TextField
         value={searchText}
         onChange={handleChangeSearchText}

@@ -24,7 +24,7 @@ function BaseLayout() {
           </ThemeSwitcherButton>
         </Stack>
       </Stack>
-      <div style={{ display: "flex", flexGrow: 1, padding: "20px", maxWidth: "1200px" }}>
+      <div style={{ display: "flex", flexGrow: 1, padding: "20px", maxWidth: "1200px", width: "100%" }}>
         <Outlet />
       </div>
     </div>

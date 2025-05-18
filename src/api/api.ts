@@ -40,11 +40,12 @@ const useGetAnimeByIdQuery = (id: string) => {
     queryFn: () => fetchAnimeById(id),
     placeholderData: keepPreviousData,
     enabled: !!id,
+    retry: 1,
   });
 };
 
 export const useGetAnimeById = (id: string) => {
-  const { data, isLoading, isPending, refetch } = useGetAnimeByIdQuery(id);
+  const { data, isLoading, isPending, refetch, isError, error } = useGetAnimeByIdQuery(id);
 
-  return { data: data?.data, isLoading, isPending, refetch };
+  return { data: data?.data, isLoading, isPending, refetch, isError, error };
 };
