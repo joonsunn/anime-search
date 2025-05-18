@@ -4,13 +4,14 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
 import { router } from "./router.tsx";
 import { QueryClientProvider } from "./api/QueryClientProvider.tsx";
-import { CssBaseline } from "@mui/material";
+import ThemeProvider from "./theme/ThemeProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryClientProvider>
-      <CssBaseline />
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </ThemeProvider>
   </StrictMode>
 );

@@ -26,6 +26,7 @@ export type AnimeSearchQuery = {
   limit?: number;
   order_by?: OrderByType;
   sort?: SortOrderType;
+  sfw?: boolean;
 };
 
 export type PaginatedResponse<T> = {
@@ -40,6 +41,10 @@ export type PaginatedResponse<T> = {
       per_page: number;
     };
   };
+};
+
+export type AnimeResponse<T> = {
+  data: T;
 };
 
 type MALObject = {

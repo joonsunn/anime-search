@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Home from "./pages/Home";
 import BaseLayout from "./layouts/BaseLayout";
+import AnimeItem from "./pages/AnimeItem";
 
 const router = createBrowserRouter([
   {
@@ -8,8 +9,13 @@ const router = createBrowserRouter([
     element: <BaseLayout />,
     children: [
       {
-        path: "/",
+        // path: "/",
         element: <Home />,
+        index: true,
+      },
+      {
+        path: ":id",
+        element: <AnimeItem />,
       },
     ],
   },
