@@ -1,6 +1,6 @@
-import { type Components, type Theme } from "@mui/material";
+import { type Components } from "@mui/material";
 
-export default function Button(theme: Theme) {
+export default function Button() {
   return {
     MuiButton: {
       styleOverrides: {

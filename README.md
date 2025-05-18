@@ -1,11 +1,10 @@
-# Anime Search
+# Anime Search App
 
-## Todo
+## Getting Started
 
-- [x] Set up React Router
-- [x] Set up Tanstack Query
-- [x] Set up Material UI
-- [x] Set up API using useQuery
-- [x] Render default list
-- [x] Implement search + pagination
-- [x] implement /:id route
+```bash
+npm install
+npm run dev
+```
+
+App will be live locally at `http://localhost:3000`
