@@ -22,7 +22,7 @@ export function AnimeItemSkeleton() {
             <Skeleton width={"100%"} height={"2rem"} variant="text" />
             <Skeleton width={"100%"} height={"2rem"} variant="text" />
           </Stack>
-          <Stack direction="row" gap={2}>
+          <Stack direction="row" gap={2} flexWrap={"wrap"}>
             <Stack sx={{ alignItems: "center", border: "1px solid grey", padding: 1, borderRadius: 2, width: "150px" }}>
               <Skeleton width={"100%"} height={"2rem"} variant="text" />
               <Skeleton width={"100%"} height={"1rem"} variant="text" />
