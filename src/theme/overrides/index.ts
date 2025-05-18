@@ -3,7 +3,7 @@ import Button from "./Button";
 import TextField from "./TextField";
 
 export default function ComponentsOverrides(theme: Theme) {
-  return Object.assign(Button(theme), TextField(theme), {
+  return Object.assign(Button(), TextField(theme), {
     MuiCssBaseline: {
       styleOverrides: `
     input:-webkit-autofill,
