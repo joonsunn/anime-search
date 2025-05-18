@@ -1,4 +1,4 @@
-import { Grid, IconButton, InputAdornment, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Grid, IconButton, InputAdornment, Stack, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useGetAnimeList } from "../../api/api";
 import { useRef, useState } from "react";
 import { usePagination } from "../../lib/hooks/usePagination";
@@ -41,9 +41,11 @@ function Search() {
             endAdornment: (
               <InputAdornment position="end">
                 {searchText ? (
-                  <IconButton onClick={handleClearSearch}>
-                    <ClearIcon color="error" />
-                  </IconButton>
+                  <Tooltip title="Clear search">
+                    <IconButton onClick={handleClearSearch}>
+                      <ClearIcon color="error" />
+                    </IconButton>
+                  </Tooltip>
                 ) : (
                   <SearchIcon />
                 )}
