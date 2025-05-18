@@ -15,7 +15,7 @@ type DebouncedTextInputProps = {
 function DebouncedTextInput({ value, setValue, delay = 250, inputRef, ...props }: DebouncedTextInputProps) {
   const [innerValue, setInnerValue] = useState<string>(value);
 
-  function handleChangeOuterValue(event: ChangeEvent<HTMLInputElement>) {
+  function handleChangeInnerValue(event: ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value.replace(/[^a-zA-Z0-9\s]/g, "");
     setInnerValue(newValue);
   }
@@ -42,7 +42,7 @@ function DebouncedTextInput({ value, setValue, delay = 250, inputRef, ...props }
     []
   );
 
-  return <TextField value={innerValue} onChange={handleChangeOuterValue} {...props} />;
+  return <TextField value={innerValue} onChange={handleChangeInnerValue} {...props} />;
 }
 
 export default DebouncedTextInput;
