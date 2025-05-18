@@ -8,9 +8,11 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { PaginationButtons } from "../../components/PaginationButtons";
 import { AnimeCard } from "./AnimeCard";
 import { AnimeCardSkeleton } from "./AnimeSkeleton";
+import { useSearchParams } from "react-router";
 
 function Search() {
-  const [searchText, setSearchText] = useState<string>("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchText, setSearchText] = useState<string>(searchParams.get("searchText") || "");
 
   const { page, setPage, pageSize, setPageSize } = usePagination({ initialPage: 1, initialPageSize: 10 });
   const theme = useTheme();
@@ -31,6 +33,21 @@ function Search() {
   useEffect(() => {
     setPage(1);
   }, [searchText, setPage]);
+
+  useEffect(() => {
+    const currentParam = searchParams.get("searchText") || "";
+    if (searchText !== currentParam) {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        if (searchText) {
+          next.set("searchText", searchText);
+        } else {
+          next.delete("searchText");
+        }
+        return next;
+      });
+    }
+  }, [searchText, setSearchParams, searchParams]);
 
   return (
     <Stack sx={{ flexGrow: 1, gap: 2, width: "100%" }}>

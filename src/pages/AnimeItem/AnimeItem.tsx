@@ -11,7 +11,8 @@ function AnimeItem() {
   const navigate = useNavigate();
 
   function handleBackButtonClick() {
-    navigate(location?.state?.from?.pathname || "/");
+    const backButtonLink = `${location?.state?.from?.pathname ?? ""}${location?.state?.from?.search ?? ""}`;
+    navigate(backButtonLink || "/");
   }
 
   const { data: anime, isLoading, isPending, isError } = useGetAnimeById(params.id || "1");
